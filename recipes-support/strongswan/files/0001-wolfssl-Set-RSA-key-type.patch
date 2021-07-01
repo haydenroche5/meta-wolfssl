@@ -1,0 +1,25 @@
+From 62c5ef035c7bed2988802ca7d078dd4b4d287e43 Mon Sep 17 00:00:00 2001
+From: Andreas Steffen <andreas.steffen@strongswan.org>
+Date: Sun, 30 May 2021 12:39:59 +0200
+Subject: [PATCH] wolfssl: Set RSA key type
+
+---
+ src/libstrongswan/plugins/wolfssl/wolfssl_rsa_private_key.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/libstrongswan/plugins/wolfssl/wolfssl_rsa_private_key.c b/src/libstrongswan/plugins/wolfssl/wolfssl_rsa_private_key.c
+index 0c1e6ee06..2270b4620 100644
+--- a/src/libstrongswan/plugins/wolfssl/wolfssl_rsa_private_key.c
++++ b/src/libstrongswan/plugins/wolfssl/wolfssl_rsa_private_key.c
+@@ -686,6 +686,8 @@ wolfssl_rsa_private_key_t *wolfssl_rsa_private_key_load(key_type_t type,
+ 	}
+ 	else if (n.ptr && e.ptr && d.ptr)
+ 	{
++		this->rsa.type = RSA_PRIVATE;
++
+ 		if (mp_read_unsigned_bin(&this->rsa.n, n.ptr, n.len) != 0)
+ 		{
+ 			goto error;
+-- 
+2.32.0
+

@@ -17,6 +17,7 @@ RPROVIDES_${PN} = "wolfssl"
 SRC_URI[md5sum] = "5f4a3cd0aea77a6ae507547fc864505c"
 SRC_URI[sha256sum] = "59edfb6b70c17c82f2ef6126198549adf6cbccee8f013cfca88323590f8cbd43"
 SRC_URI = "https://www.wolfssl.com/wolfssl-${PV}.zip"
+SRC_URI += " file://ntp.patch"
 
 inherit autotools
 

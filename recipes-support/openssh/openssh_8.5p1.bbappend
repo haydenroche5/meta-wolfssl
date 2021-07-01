@@ -1,0 +1,10 @@
+# Patch
+FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+SRC_URI += " file://openssh-8.5p1.patch"
+
+# Dependencies
+DEPENDS_remove = "openssl"
+DEPENDS += " wolfssl"
+
+# Configure
+EXTRA_OECONF += " --with-wolfssl=${STAGING_EXECPREFIXDIR}"
